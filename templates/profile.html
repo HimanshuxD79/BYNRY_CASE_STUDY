@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% block style%}
+<link href="https://unpkg.com/tailwindcss@0.3.0/dist/tailwind.min.css" rel="stylesheet">
+{% endblock style%}
+{% block content%}
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+
+
+<div class="bg-gray-100"> 
+    <div class="container mx-auto my-5 p-5">
+        <div class="md:flex no-wrap md:-mx-2 ">
+            
+            <div class="w-full md:w-3/12 md:mx-2">
+                
+                <div class="bg-white p-3 border-t-4 border-blue-400">
+                    <div class="image overflow-hidden">
+                        <img class="h-auto w-full mx-auto"
+                            src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                            alt="">
+                    </div>
+                    <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ first_name }}</h1>
+                    <h2 class="text-gray-600 font-lg text-semibold leading-6">{{user.username}}</h2>
+                    
+                    <ul
+                        class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                        <li class="flex items-center py-3">
+                            <span>Status</span>
+                            <span class="ml-auto"><span
+                                    class="bg-green-500 py-1 px-2 rounded text-white text-sm">Active</span></span>
+                        </li>
+                        <li class="flex items-center py-3">
+                            <span>GAS ID</span>
+                            <span class="ml-auto">{{ gas_id }}</span>
+                        </li>
+                        <li class="flex items-center py-3">
+                            <span>Mobile</span>
+                            <span class="ml-auto">{{ phone_number }}</span>
+                        </li>
+                        <li class="flex items-center py-3">
+                            <span>Email </span>
+                            <span class="ml-auto">{{ email }}</span>
+                        </li>
+                        
+                    </ul>
+                </div>
+                
+                <div class="my-4"></div>
+                
+            </div>
+            
+            <div class="w-full md:w-9/12 mx-2 h-64">
+                
+
+                <div class="my-4"></div>                
+                <div class="bg-white p-3 shadow-sm rounded-sm">
+                    {% for sr in service_requests%}   
+                    
+                    <h6 class="text-lg font-bold dark:text-white">Request {{ forloop.counter }} | {{sr.request_type}} | Created On {{sr.created_at}}</h6>
+                    {%if sr.status == 'Resolved'%}
+                    <h6 class="text-lg font-bold dark:text-white text-green-500 ">Request Resolved On {{sr.date_of_issue_resolved}}</h6>
+                    {% endif %}
+                    <div class="max-w-xl mx-auto my-4 border-b-2 pb-4">	
+                        <div class="flex pb-3">
+                            <div class="flex-1">
+                            </div>
+                             <div class="flex-1">
+                                <div class="w-10 h-10 bg-green mx-auto rounded-full text-lg text-white flex items-center">
+                                    <span class="text-white text-center w-full"><i class="fa fa-check w-full fill-current white"></i></span>
+                                </div>
+                            </div>
+                    
+                            {% if sr.status == 'Verified' or sr.status == 'Resolving' or sr.status == 'Resolved'%}
+                            <div class="w-1/6 align-center items-center align-middle content-center flex">
+                                <div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+                                     <div class="bg-green-light text-xs leading-none py-1 text-center text-grey-darkest rounded " style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="w-10 h-10 bg-green mx-auto rounded-full text-lg text-white flex items-center">
+                                    <span class="text-white text-center w-full"><i class="fa fa-check w-full fill-current white"></i></span>
+                                </div>
+                            </div>
+
+                            {% else %}
+                            <div class="w-1/6 align-center items-center align-middle content-center flex">
+                                <div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+                                     <div class="bg-green-light text-xs leading-none py-1 text-center text-grey-darkest rounded " style="width: 10%"></div>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="w-10 h-10 bg-white border-2 border-grey-light mx-auto rounded-full text-lg text-white flex items-center">
+                                    <span class="text-grey-darker text-center w-full">2</span>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if sr.status == 'Resolving' or sr.status == 'Resolved'%}
+                            <div class="w-1/6 align-center items-center align-middle content-center flex">
+                                <div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+                                     <div class="bg-green-light text-xs leading-none py-1 text-center text-grey-darkest rounded " style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="w-10 h-10 bg-green mx-auto rounded-full text-lg text-white flex items-center">
+                                    <span class="text-white text-center w-full"><i class="fa fa-check w-full fill-current white"></i></span>
+                                </div>
+                            </div>
+
+                            {% else %}
+                            <div class="w-1/6 align-center items-center align-middle content-center flex">
+                                <div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+                                     <div class="bg-green-light text-xs leading-none py-1 text-center text-grey-darkest rounded " style="width: 10%"></div>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="w-10 h-10 bg-white border-2 border-grey-light mx-auto rounded-full text-lg text-white flex items-center">
+                                    <span class="text-grey-darker text-center w-full">3</span>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if sr.status == 'Resolved'%}
+                            <div class="w-1/6 align-center items-center align-middle content-center flex">
+                                <div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+                                     <div class="bg-green-light text-xs leading-none py-1 text-center text-grey-darkest rounded " style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="w-10 h-10 bg-green mx-auto rounded-full text-lg text-white flex items-center">
+                                    <span class="text-white text-center w-full"><i class="fa fa-check w-full fill-current white"></i></span>
+                                </div>
+                            </div>
+
+                            {% else %}
+                            <div class="w-1/6 align-center items-center align-middle content-center flex">
+                                <div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+                                     <div class="bg-green-light text-xs leading-none py-1 text-center text-grey-darkest rounded " style="width: 10%"></div>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="w-10 h-10 bg-white border-2 border-grey-light mx-auto rounded-full text-lg text-white flex items-center">
+                                    <span class="text-grey-darker text-center w-full">4</span>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="flex-1">
+                            </div>		
+                        </div>
+                        
+                        <div class="flex text-xs content-center text-center">
+                            <div class="w-1/4">
+                                Invitation received
+                            </div>
+                            
+                            <div class="w-1/4">
+                                Personal details
+                            </div>
+                            
+                            <div class="w-1/4">
+                                Application details
+                            </div>
+                            
+                            <div class="w-1/4">
+                                Confirmation
+                            </div>			
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content%}
