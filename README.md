@@ -11,7 +11,11 @@ The project involves the development of a Service Request Platform for Gas Utili
 - Secure User Authentication 
 - Service Request form
 - Status Tracking along with Profile Section
-- Django Admin panel for updating Status of Request
+- Django Admin panel for updating the Status of Request
+# Customer Support
+- For Customer Support, I would like to use Tawk, a prebuilt chat system that can be integrated with the application to handle all customer queries. unfortunately, that service can only be used after deploying the project, So I'm unable to integrate that.
+- for more information, you can check https://www.tawk.to/ 
+
 
 # Getting Started
 - Clone the repository.
