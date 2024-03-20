@@ -29,4 +29,4 @@ pip install -r requirements.txt
 ```
 python manage.py runserver
 ```
-#### Explore the API documentation at http://127.0.0.1:8000/api/schema/docs/
+
