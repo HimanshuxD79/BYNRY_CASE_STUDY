@@ -23,3 +23,4 @@ class ServiceRequest(models.Model):
         if self.status == 'Resolved' and not self.date_of_issue_resolved:
             self.date_of_issue_resolved = timezone.now()
         super().save(*args, **kwargs)
+        
