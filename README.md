@@ -1,8 +1,9 @@
 
 # Service Request Platform
+![Screenshot 2024-03-20 114645](https://github.com/HimanshuxD79/BYNRY_CASE_STUDY/assets/79762394/721a364d-c6ab-485b-9d84-356beb556a17)
+![Screenshot 2024-03-20 114919](https://github.com/HimanshuxD79/BYNRY_CASE_STUDY/assets/79762394/0d45b849-6870-4725-beb5-63e54546cc16)
 
-The project involv![Screenshot 2024-03-20 114645](https://github.com/HimanshuxD79/BYNRY_CASE_STUDY/assets/79762394/721a364d-c6ab-485b-9d84-356beb556a17)
-es the development of a Service Request Platform for Gas Utility Company. The application would allow customers to submit service requests online, track the status of their requests,and view their account information.
+The project involves the development of a Service Request Platform for Gas Utility Company. The application would allow customers to submit service requests online, track the status of their requests,and view their account information.
 
 
 # Features
